@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>4. Vue Event Listeners</title>
+  </head>
+  <body>
+
+    <div id="root">
+      <ol>
+        <li v-for="fruit in fruits" v-text="fruit"></li>
+      </ol>
+
+      <input type="text" name="newFruit" value="" v-model="newFruit">
+      <button @click='addFruitMethod' type="button" name="addFruit">Add Fruit</button>
+
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+
+    <script type="text/javascript">
+      new Vue({
+        el: '#root',
+        data: {
+          fruits: ['apple', 'banana', 'orange', 'strawberry'],
+          newFruit: ''
+        },
+        methods: {
+          addFruitMethod(){
+            this.fruits.push(this.newFruit)
+            this.newFruit = ''
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

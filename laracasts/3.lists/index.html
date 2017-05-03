@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>3. Lists</title>
+  </head>
+  <body>
+
+    <div id="root">
+      <ol>
+        <li v-for="fruit in fruits" v-text="fruit"></li>
+      </ol>
+
+      <input type="text" name="newFruit" value="">
+      <button type="button" name="addFruit">Add Fruit</button>
+
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+
+    <script type="text/javascript">
+      new Vue({
+        el: '#root',
+        data: {
+          fruits: ['apple', 'banana', 'orange', 'strawberry']
+        },
+        mounted() {
+          document.getElementsByName('addFruit')[0].addEventListener('click', () => {
+            let newFruit = document.getElementsByName('newFruit')[0]
+            this.fruits.push(newFruit.value)
+            newFruit.value = ''
+          })
+        }
+      })
+    </script>
+  </body>
+</html>
